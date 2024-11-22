@@ -61,7 +61,7 @@ echo 'weeki server
 
 Authorized access only!
 
-If you are not authorized to access or connect or use this system, disconnect now!
+If you are not authorized (prohibited) to access or connect or use this system, disconnect now!
 
 ------------------------------------------------------------
 ------------------------------------------------------------'>/etc/issue
