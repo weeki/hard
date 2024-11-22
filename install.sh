@@ -67,7 +67,7 @@ If you are not authorized (prohibited) to access or connect or use this system, 
 ------------------------------------------------------------'>/etc/issue
 cp /etc/issue /etc/issue.net
 apt install aide -y
-sed -i -e 's/H/sha256/g' /etc/aide/aide.conf
+sed -i -e 's/= H/= sha256/g' /etc/aide/aide.conf
 aide --config=/etc/aide/aide.conf -i
 mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 apt install usbguard -y
