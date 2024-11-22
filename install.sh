@@ -67,8 +67,10 @@ If you are not authorized (prohibited) to access or connect or use this system, 
 ------------------------------------------------------------'>/etc/issue
 cp /etc/issue /etc/issue.net
 apt install aide -y
-touch /var/lib/aide/aide.db
-aide -c /etc/aide/aide.conf --init
+grep -v "Checksums = H" /etc/aide/aide.conf  > /tmp/test.conf && mv /tmp/test.conf /etc/etc/aide/aide.conf
+echo 'Checksums = sha256' >> /etc/aide/aide.conf
+aide --config=/etc/aide/aide.conf -i
+mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 apt install usbguard -y
 apt autoremove -y
 apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}') -y
