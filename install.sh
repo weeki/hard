@@ -42,6 +42,8 @@ grep -v "UMASK" /etc/login.defs  > /tmp/test.conf && mv /tmp/test.conf /etc/logi
 echo 'UMASK           027' >> /etc/login.defs
 echo 'PASS_MAX_DAYS 90' >> /etc/login.defs
 echo 'PASS_MIN_DAYS 30'>> /etc/login.defs
+echo 'SHA_CRYPT_MIN_ROUNDS 5000'>> /etc/login.defs
+echo 'SHA_CRYPT_MAX_ROUNDS 5000'>> /etc/login.defs
 
 chmod 600 /etc/ssh/sshd_config
 chmod 700 /etc/cron.d
