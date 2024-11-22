@@ -68,7 +68,7 @@ If you are not authorized (prohibited) to access or connect or use this system, 
 cp /etc/issue /etc/issue.net
 apt install aide -y
 touch /var/lib/aide/aide.db
-aide -c /etc/aide/aide.conf && aide --init
+aide -c /etc/aide/aide.conf --init
 apt install usbguard -y
 apt autoremove -y
 apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}') -y
