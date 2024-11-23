@@ -54,8 +54,10 @@ chmod 700  /etc/cron.daily
 chmod 700 /etc/cron.hourly
 chmod 700 /etc/cron.weekly
 chmod 700 /etc/cron.monthly
-echo 0 > /sys/bus/usb/devices/usb1/authorized_default
-echo 0 > /sys/bus/usb/devices/usb1/authorized
+echo '0' > /sys/bus/usb/devices/usb1/authorized_default
+echo '0' > /sys/bus/usb/devices/usb1/authorized
+echo PresentControllerPolicy=keep
+ed -i -e 's/PresentControllerPolicy=keep/PresentControllerPolicy=reject/g'
 echo 'proc    /proc        proc        defaults,hidepid=2    0 0' >> /etc/fstab
 chage -M 90 root
 chage -M 90 weeki
