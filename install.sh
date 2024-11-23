@@ -15,6 +15,7 @@ echo 'net.ipv4.conf.default.accept_source_route = 0'>>/etc/sysctl.d/99-sysctl.co
 echo 'net.ipv4.conf.default.log_martians = 1'>>/etc/sysctl.d/99-sysctl.conf
 echo 'net.ipv6.conf.all.accept_redirects = 0'>>/etc/sysctl.d/99-sysctl.conf
 echo 'net.ipv6.conf.default.accept_redirects = 0'>>/etc/sysctl.d/99-sysctl.conf
+echo 'net.ipv6.conf.all.disable_ipv6 = 1.'>>/etc/sysctl.d/99-sysctl.conf
 grep -v "X11Forwarding" /etc/ssh/sshd_config  > /tmp/test.conf && mv /tmp/test.conf /etc/ssh/sshd_config
 echo 'AllowTcpForwarding no'>> /etc/ssh/sshd_config
 echo 'LogLevel verbose'>> /etc/ssh/sshd_config
