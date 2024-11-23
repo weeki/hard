@@ -52,8 +52,8 @@ chmod 700  /etc/cron.daily
 chmod 700 /etc/cron.hourly
 chmod 700 /etc/cron.weekly
 chmod 700 /etc/cron.monthly
-echo 1 > /sys/bus/usb/devices/usb1/authorized_default
-echo 1 > /sys/bus/usb/devices/usb1/authorized
+echo 0 > /sys/bus/usb/devices/usb1/authorized_default
+echo 0 > /sys/bus/usb/devices/usb1/authorized
 echo 'proc    /proc        proc        defaults,hidepid=2    0 0' >> /etc/fstab
 chage -M 90 root
 chage -M 90 weeki
@@ -72,6 +72,7 @@ apt install aide -y
 sed -i -e 's/= H/= sha256/g' /etc/aide/aide.conf
 aide --config=/etc/aide/aide.conf -i
 mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+#sed -i -e 's/tmp  ext4    defaultsH/tmp            ext4    defaults,nodev,noexec,nosuid/g' /etc/fstab
 apt install usbguard -y
 apt autoremove -y
 apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}') -y
