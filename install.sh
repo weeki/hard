@@ -72,6 +72,8 @@ apt install aide -y
 sed -i -e 's/= H/= sha256/g' /etc/aide/aide.conf
 aide --config=/etc/aide/aide.conf -i
 mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+echo 'readonly TMOUT=300' >> /etc/profile
+echo 'export TMOUT' >> /etc/profile
 #sed -i -e 's/tmp  ext4    defaultsH/tmp            ext4    defaults,nodev,noexec,nosuid/g' /etc/fstab
 apt install usbguard -y
 apt autoremove -y
