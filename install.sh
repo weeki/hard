@@ -84,6 +84,10 @@ apt autoremove -y
 apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}') -y
 echo 'CRON_CHECK=weekly' >/etc/default/debsums
 echo 'proc    /proc        proc        defaults,hidepid=2    0 0' >> /etc/fstab
+
+
+echo '[DEFAULT]' >> /etc/fail2ban/fail2ban.conf 
+echo 'allowipv6 = auto' >> /etc/fail2ban/fail2ban.conf 
 #echo 'cat << EOF'>>/etc/grub.d/00_header
 #echo 'set superusers="root"'>>/etc/grub.d/40_custom
 #echo 'password_pbkdf2 root grub.pbkdf2.sha512.10000.85BE51ADC3EF48D61AF1A543BAC8B0BEA6E4582D3F621063C4C959920E3F0BE2DD495176100C22D8CCC6D528FFE87CC565640583DA343E190D6A35B32A5262A3.EAFA7E855438B3AA0DFAE94425CFC8106E1BA2C001A42C1AFE8ED4155BD8663FB0973A0FADEB307611724BB5081AFA2796050F7DEAFF546AA9E0346553CF9179'>>/etc/grub.d/40_custom
