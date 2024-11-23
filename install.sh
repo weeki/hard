@@ -25,8 +25,9 @@ echo 'MaxSessions 2'>> /etc/ssh/sshd_config
 echo 'TCPKeepAlive no'>> /etc/ssh/sshd_config
 echo 'AllowAgentForwarding no'>> /etc/ssh/sshd_config
 echo 'Port 1984'>> /etc/ssh/sshd_config
-
-
+echo 'ulimit -c 0' >> /etc/profile
+echo 'ProcessSizeMax=0' >> /etc/systemd/coredump.conf
+echo 'Storage=none' >> /etc/systemd/coredump.conf
 echo 'install dccp /bin/true' >/etc/modprobe.d/dccp.conf
 echo 'install sctp /bin/true' >/etc/modprobe.d/sctp.conf
 echo 'install rds /bin/true' >/etc/modprobe.d/rds.conf
