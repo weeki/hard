@@ -74,6 +74,8 @@ aide --config=/etc/aide/aide.conf -i
 mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 echo 'readonly TMOUT=300' >> /etc/profile
 echo 'export TMOUT' >> /etc/profile
+echo 'umask 027' >> /etc/profile
+echo 'umask 027' >> /etc/bash.bashrc 
 #sed -i -e 's/tmp  ext4    defaultsH/tmp            ext4    defaults,nodev,noexec,nosuid/g' /etc/fstab
 apt install usbguard -y
 apt autoremove -y
